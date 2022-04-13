@@ -5,6 +5,7 @@
             ><span class="material-icons">home</span></button>
 <br>
 <br>
+<h2><a [routerLink]="['/new-car/' + desktopId]">Ajouter une nouvelle voiture</a></h2>
 <br>
 <div class="bg-warning">
   <h2 style="color: red;">{{errorMsg}}</h2>
@@ -20,7 +21,6 @@
                     <p>{{item.price.toFixed(2)}}€/jour</p>
                     <h3>{{item.km_Start}}km</h3>
                     <br>
-                    <button class="btn btn-warning">Modifier ce véhicule</button>
                     <br>
                     <br>
                     <button class="btn btn-danger" (click)="deleteCar(item.car_Id)">Supprimer ce véhicule</button>

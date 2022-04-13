@@ -39,6 +39,10 @@ export class DesktopComponent implements OnInit {
     this._router.navigateByUrl("/home");
   }
 
+  updateCar(id: string){
+    this._router.navigateByUrl("/update-car/" + id);
+  }
+
   deleteCar(id: string){
     this._service.delete(id).subscribe({
       next: () => this.loadData(),

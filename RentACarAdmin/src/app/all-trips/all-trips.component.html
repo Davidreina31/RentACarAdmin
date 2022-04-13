@@ -70,10 +70,20 @@
             {{trip.car.model}}
           </td>
           <td>
-            {{trip.isPackage}}
+          <ng-container *ngIf="trip.isPackage">
+            oui
+          </ng-container>
+          <ng-container *ngIf="!trip.isPackage">
+            non
+          </ng-container>
           </td>
           <td>
-            {{trip.isTripDone}}
+            <ng-container *ngIf="trip.isTripDone">
+              oui
+            </ng-container>
+            <ng-container *ngIf="!trip.isTripDone">
+              non
+            </ng-container>
           </td>
           <td>
             <ng-container *ngIf="!trip.isTripDone">

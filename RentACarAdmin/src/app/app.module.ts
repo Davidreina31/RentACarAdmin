@@ -13,16 +13,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FinalBillComponent } from './final-bill/final-bill.component';
 import { DesktopComponent } from './desktop/desktop.component';
 import { AddDesktopComponent } from './add-desktop/add-desktop.component';
+import { AddCarComponent } from './add-car/add-car.component';
 
 @NgModule({
-  declarations: [							
+  declarations: [									
     AppComponent,
       HomeComponent,
       AllTripsComponent,
       FinishTripComponent,
       FinalBillComponent,
       DesktopComponent,
-      AddDesktopComponent
+      AddDesktopComponent,
+      AddCarComponent
    ],
   imports: [
     BrowserModule,
