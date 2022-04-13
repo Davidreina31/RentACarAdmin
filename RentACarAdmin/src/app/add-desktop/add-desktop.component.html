@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-xl-9 mx-auto">
+      <div class="card card-signin flex-row my-5">
+        <div class="card-img-left d-none d-md-flex">
+           <!-- Background image for card set in CSS! -->
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">Ajouter un nouveau dépôt</h5>
+          <form class="form_group" [formGroup]="form" (ngSubmit)="addDesktop()">
+            <div class="form-label-group">
+              <label for="city"></label>
+              <input type="text" class="form-control" placeholder="city" id="city" formControlName="city">
+            </div>
+            <div class="form-label-group">
+              <label for="imageUrl"></label>
+              <input type="text" class="form-control" placeholder="imageUrl" id="imageUrl" formControlName="imageUrl">
+            </div>
+            <br>
+            <br>
+            <div class="form-label-group">
+              <label for="country"></label>
+              <select formControlName="country">
+                <ng-container *ngFor="let item of countries">
+                <option value="{{item.country_Id}}">{{item.country_Name}}</option>
+              </ng-container>
+            </select>
+            </div>
+            <br>
+            <br>
+            <p style="color: red;">{{errorMsg}}</p>
+            <br>
+            <br>
+            <label>
+              <input type="submit" class="btn btn-lg btn-success btn-block text-uppercase" value="Ajouter !"
+                [disabled]="form.invalid">
+            </label>
+          </form>
+          <br>
+          <button class="btn btn-lg btn-danger btn-block text-uppercase"
+          (click)="previousPage()">retour</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

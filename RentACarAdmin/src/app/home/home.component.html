@@ -1,0 +1,87 @@
+<header class="masthead bg-warning text-white text-center">
+  <div class="container d-flex align-items-center flex-column">
+      <!-- Masthead Avatar Image-->
+      <img class="masthead-avatar mb-5"
+          src="https://www.silicon.fr/wp-content/uploads/2016/02/Admin-computer.jpg"
+          height="150" />
+      <!-- Masthead Heading-->
+      <h1 class="masthead-heading text-uppercase mb-0">RENT A CAR ADMIN</h1>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+          <div class="divider-custom-line"></div>
+      </div>
+      <!-- Masthead Subheading-->
+  </div>
+</header>
+<br>
+
+<div class="bg-info" style="text-align: center; border: solid; border-color: red;">
+  <span class="material-icons">computer
+      <h1>Nos dépôts</h1>
+  </span>
+</div>
+<br>
+<h2><a [routerLink]="['/new-desktop']">Ajouter un nouveau dépôt</a></h2>
+<div class="row" *ngFor="let item of desktops">
+  <div class="column">
+      <img src="{{item.imageUrl}}" height="300" width="300">
+      <h2>{{item.country.country_Name}}</h2>
+      <h3><a [routerLink]="['/desktop/' + item.desktop_Id]">{{item.city}}</a></h3>
+  </div>
+</div>
+<br>
+
+
+<div class="bg-info" style="text-align: center; border: solid; border-color: red;">
+  <span class="material-icons">assignment
+      <h1>Nos contrats</h1>
+  </span>
+</div>
+<br>
+<button class="btn btn-secondary" (click)="goToAllTrips()">Voir tous les contrats</button>
+<br>
+<br>
+
+<div>
+  <table class="table table-striped table-dark">
+    <thead class="thead">
+      <tr>
+        <th>
+          Numéro de contrat
+        </th>
+        <th>
+          Email du client
+        </th>
+        <th>
+          Date de départ
+        </th>
+        <th>
+          Date de fin
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <ng-container *ngFor="let trip of trips">
+        <tr>
+          <td>
+            {{trip.trip_Id}}
+          </td>
+          <td>
+            {{trip.client_Email}}
+          </td>
+          <td>
+            {{trip.date_Start |date}}
+          </td>
+          <td>
+            {{trip.date_End |date}}
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+<br>
+

@@ -1,0 +1,90 @@
+<div>
+  <table class="table table-striped table-light">
+    <thead class="thead">
+      <tr>
+        <th>
+          Numéro de contrat
+        </th>
+        <th>
+          Email du client
+        </th>
+        <th>
+          Date de départ
+        </th>
+        <th>
+          Date de fin
+        </th>
+        <th>
+          Dépôt de départ
+        </th>
+        <th>
+          Dépôt de retour
+        </th>
+        <th>
+          Marque voiture
+        </th>
+        <th>
+          Modèle voiture
+        </th>
+        <th>
+          Package ?
+        </th>
+        <th>
+          Voyage terminé?
+        </th>
+        <th>
+        </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <ng-container *ngFor="let trip of trips">
+        <tr>
+          <td>
+            {{trip.trip_Id}}
+          </td>
+          <td>
+            {{trip.client_Email}}
+          </td>
+          <td>
+            {{trip.date_Start |date}}
+          </td>
+          <td>
+            {{trip.date_End |date}}
+          </td>
+          <td>
+            {{trip.desktop_Start.city}}
+          </td>
+          <td>
+            <ng-container *ngIf="trip.desktopEndSpecified">
+            {{trip.desktop_End.city}}
+          </ng-container>
+          <ng-container *ngIf="!trip.desktopEndSpecified">
+            <div style="color: red;">non spécifié</div> 
+          </ng-container>
+          </td>
+          <td>
+            {{trip.car.brand}}
+          </td>
+          <td>
+            {{trip.car.model}}
+          </td>
+          <td>
+            {{trip.isPackage}}
+          </td>
+          <td>
+            {{trip.isTripDone}}
+          </td>
+          <td>
+            <ng-container *ngIf="!trip.isTripDone">
+              <button class="btn btn-warning" (click)="finishTrip(trip.trip_Id)">Remise du véhicule</button>
+            </ng-container>
+            <ng-container *ngIf="trip.isTripDone">
+             <div style="color: green;"> <a [routerLink]="['/final-bill/'  + trip.trip_Id]">Contrat terminé</a></div>
+            </ng-container>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

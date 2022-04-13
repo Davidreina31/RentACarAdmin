@@ -1,0 +1,44 @@
+<body style="background-color: rgba(207, 155, 0, 0.933);"> <br>
+<br>
+<br>
+<br>
+<br>
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+  <div class="card card0 border-0">
+    <div class="row d-flex">
+      <div class="col-lg-6">
+        <div class="card1 pb-5">
+          <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img
+              src="{{currentTrip.car.imageUrl}}" class="image"> </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card2 card border-0 px-4 py-5">
+          <form [formGroup]="form" (ngSubmit)="finishTrip()">
+            <div class="row px-3">
+              <label class="mb-1" for="email">
+                <h6 class="mb-0 text-sm">Km de départ</h6>
+                <input type="text" class="mb-4" id="email" value="{{currentTrip.car.km_Start}} km" [disabled]="currentTrip.car.km_Start > 0">
+              </label>
+            </div>
+            <div class="row px-3">
+              <label class="mb-1" for="pwd">
+                <h6 class="mb-0 text-sm">Km de la voiture actuellement</h6>
+                <input type="text" id="kmEnd" placeholder="km de la voiture actuellement" formControlName="kmEnd">
+              </label>
+            </div>
+            <div class="row mb-3 px-3">
+              <label>
+                <input type="submit" class="btn btn-blue text-center" value="Valider" [disabled]="form.invalid">
+              </label>
+            </div>
+            <br>
+            <br>
+            <p style="color: red;">{{errorMsg}}</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
